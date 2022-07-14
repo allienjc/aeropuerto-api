@@ -34,7 +34,7 @@ app.use(
 
 app.post("/subir_archivo", async (req, res) => {
   console.log(req.file);
-  let dir = `../src/assets/uploads`;
+  let dir = `./uploads`;
   if (!fs.existsSync(dir)) {
     console.log("creando directorio");
     fs.mkdirSync(dir);
@@ -48,7 +48,7 @@ app.post("/subir_archivo", async (req, res) => {
   // }
   fs.renameSync(
     `temp/${req.file.originalname}`,
-    `../src/assets/uploads/${req.file.originalname}`
+    `./uploads/${req.file.originalname}`
   );
   io.emit("addarchivo", req.file.originalname);
   return res.status(200).send(req.file);
@@ -130,7 +130,7 @@ io.on("connection", (socket) => {
       var sededata = nombresede[0].nombre_sede;
     }
 
-    var archivos = fs.readdirSync(`../src/assets/uploads`);
+    var archivos = fs.readdirSync(`./uploads`);
 
     
 
