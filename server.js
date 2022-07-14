@@ -12,10 +12,10 @@ const io = require("socket.io")(server, {
 });
 var mysql = require("mysql");
 var con = mysql.createConnection({
-  host: "localhost",
-  user: "root",
-  password: "",
-  database: "aeropuerto",
+  host: "mysql-aeropuerto.alwaysdata.net",
+  user: "275917",
+  password: "Juan1985*",
+  database: "aeropuerto_db",
 });
 
 app.use(cors());
