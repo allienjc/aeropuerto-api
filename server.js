@@ -32,6 +32,14 @@ app.use(
   }).single("file")
 );
 
+//app.use(express.static('uploads'));
+app.get('/uploads/:image', function(req, res){
+  var options = {'root': 'uploads'};
+  res.sendFile( `${req.params.image}`, options );
+}); 
+
+
+
 app.post("/subir_archivo", async (req, res) => {
   console.log(req.file);
   let dir = `./uploads`;
@@ -130,7 +138,7 @@ io.on("connection", (socket) => {
       var sededata = nombresede[0].nombre_sede;
     }
 
-    var archivos = fs.readdirSync(`./uploads`);
+    var archivos = fs.readdirSync(`../src/assets/uploads`);
 
     
 
