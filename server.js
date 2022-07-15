@@ -138,7 +138,7 @@ io.on("connection", (socket) => {
       var sededata = nombresede[0].nombre_sede;
     }
 
-    var archivos = fs.readdirSync(`../src/assets/uploads`);
+    var archivos = fs.readdirSync(`./uploads`);
 
     
 
